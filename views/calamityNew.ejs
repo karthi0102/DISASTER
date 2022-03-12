@@ -1,0 +1,42 @@
+<% layout('layout/boilerplate')%>
+<style>
+  body{
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6 offset-3" >   
+                <div class="card shadow">
+                    <div class="card-body">
+
+                   
+                <h2 class="text-center">DISASTER INFORMATION</h2>  
+    <form action="/calamity" method="post">
+     <div class="mb-3">
+     <label for="Calamity"  class="form-label">Location of Calamity: </label>
+     <input type="text"class="form-control" id="Calamity" name="calamity[location]">
+    </div>
+    <div class="mb-3">
+        <label for="location"  class="form-label">Assemble Location: </label>
+        <input type="text"class="form-control" id="location" name="calamity[assemble]">
+       </div>
+     
+     <div class="mb-3">
+        <label for="persons"  class="form-label">Minimum Number of persons required : </label>
+        <input type="number" class="form-control"id="persons" name="calamity[persons]">  
+      </div>
+      <div class="mb-3">
+        <label for="message"  class="form-label">Message: </label>
+        <textarea name="calamity[message]" class="form-control" id="message" cols="30" rows="5"></textarea>
+      </div>
+      <button class="btn btn-primary">Register</button>
+     
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,61 @@
+<% layout('layout/boilerplate')%>
+<style>
+    body{
+     background-color: #7DB0D0;
+    }
+   
+    .link a{
+        text-decoration: none;
+        color: darkblue;
+    }
+</style>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-lg-4 offset-4"> 
+            <div class="card shadow">
+                
+                <div class="card-body">
+                        <p class="text-center display-5">Commanding officer</p>
+    <form action="/officer" method="post" >
+    <div class="mb-3">  
+    <label for="gender">Gender: </label>
+        
+        <span>&nbsp SW</span><input class="form-check-input" type="radio" id="gender" value="sd" name="ncc[gender]" aria-label="...">
+        <span>&nbsp SD</span><input class="form-check-input" type="radio" id="gender"  name="ncc[gender]" value="sw" aria-label="...">
+    
+    </div>
+   
+    <div class="mb-3">
+        <label for="group"  class="form-label">Group : </label>
+        <input type="text" class="form-control"id="group" name="ncc[group]">   
+    </div> 
+    <div class="mb-3">
+    <label for="Battalion"  class="form-label">Battalion : </label>
+    <input type="string"class="form-control" id="Battalion" name="ncc[battalion]">
+    </div>
+    <div class="mb-3">
+    <label for="regi"  class="form-label">Regimental Number : </label>
+    <input type="text"class="form-control" id="regi" name="ncc[Regimental]">
+    </div>
+  
+    <div class="mb-3">
+        <label for="cadet"  class="form-label">Cadet Rank : </label>
+        <input type="text" class="form-control"id="cadet" name="ncc[cadet]">  
+    </div>
+    <div class="mb-3">
+        <label for="group"  class="form-label">District of commanding officier : </label>
+        <input type="text" class="form-control"id="group" name="ncc[district]">   
+    </div> 
+    <div class="d-grid gap-2">
+    <button class="btn btn-primary">Register</button> 
+</div>
+    </form>
+    <div class="text-center link">
+        <a href="/ncc" >Registers as Cadet</a>
+        <a href="/ano">Register as Ano </a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>

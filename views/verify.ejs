@@ -1,0 +1,39 @@
+<% layout('layout/boilerplate')%>
+<style>
+    .card{
+        background-color: darkblue;
+        color:white;
+        border-radius: 30px;
+    }
+</style>
+<div class="container my-5">
+
+<div class="row d-flex justify-content-center">
+
+
+<% for(let ncc of nccUser){ %>
+    <% if (!(ncc._id.equals(user._id))) { %>
+        <% if(ncc.ncc.verified==1){ %> 
+         <div class="col-lg-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h6><%= ncc.name  %> </h6>
+                        <h6><%= ncc.phone  %> </h6>
+                        <h6><%= ncc.email  %> </h6>
+                        <h6><%= ncc.ncc.group %> </h6>
+                        <h6><%= ncc.ncc.battalion  %> </h6>
+                        <h6><%= ncc.ncc.regimental  %> </h6>
+                        <h6><%= ncc.ncc.cadet  %> </h6>
+                        <div class="d-grid gap-2">
+                            <a href="/verified/<%=ncc.ncc._id%>" class="btn btn-light">Verify</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     </div>
+     <% } %> 
+    <% } %>
+    <% } %> 
+</div>
+</div>

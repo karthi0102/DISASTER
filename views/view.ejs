@@ -1,0 +1,22 @@
+<% layout('layout/boilerplate')%>
+<style>
+    .card-body{
+        background-color: darkblue;
+        color:white
+    }
+</style>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <% for(let apply of disaster.appliers) {%>
+        <div class="col-sm-12 col-md-6 col-lg-4 ">
+            <div class="card shadow">
+                <div class="card-body">
+                        <h2><%=apply.name%></h2>
+                        <h5><%= apply.email  %> </h5>
+                        <h2><%= apply.phone  %> </h2>
+                </div>
+            </div>
+        </div>
+        <% } %> 
+    </div>
+</div>

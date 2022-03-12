@@ -1,0 +1,39 @@
+<% layout('layout/boilerplate')%>
+<style>
+    body{
+        background-color: #7DB0D0;
+    }
+   
+</style>
+<div class="container mt-5 my-3">
+    <div class="row">
+        <div class="col-4 offset-4" >    
+            <div class="card shadow">
+               
+                <div class="card-body">
+<h3 class="text-center display-5">NSS CADET</h3>
+               
+<form action="/nss" method="post" >
+    <div class="mb-3">  
+        <label for="gender">Gender: </label>
+            <span>&nbsp Male</span><input class="form-check-input" type="radio" id="gender" value="sd" name="ncc[gender]" aria-label="...">
+            <span>&nbsp Female</span><input class="form-check-input" type="radio" id="gender"  name="ncc[gender]" value="sw" aria-label="...">
+        </div>
+    <div class="mb-3">
+    <label for="college"  class="form-label">College Name: </label>
+    <input type="text" class="form-control"id="college" name="nss[college]" required>   
+</div>  
+<div class="mb-3">
+<label for="proof" class="form-label">Proof: </label>
+<input type="text" class="form-control " id="proof" name="nss[certificate]">
+</div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary">Register</button>
+    </div>
+</form>
+</div>
+</div>
+</div> 
+</div>
+</div>
+

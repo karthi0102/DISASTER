@@ -1,0 +1,59 @@
+<% layout('layout/boilerplate')%>
+<style>
+    body{
+        background-color:lightskyblue
+    }
+    .card{
+        border-radius: 30px;
+    }
+  .card-body{
+      background-color: darkblue;
+      color:white;
+  }
+</style>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-6 offset-3">
+                    <div class="card shadow">
+                       
+                        <div class="card-body">
+                            <h2 class="text-center display-5">Send a message </h2>
+                            <form action="/message/<%=phone%>" method="post">
+                            <div class="mb-3">
+                            <label for="message" class="form-label">Message :</label>
+                            <textarea id="review" name="message" class="form-control" rows="4" cols="50">
+                            </textarea>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-light">Send Message</button>
+                        </div>
+                             
+                            </form>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-6 offset-3">
+                    <div class="card shadow">
+                       
+                        <div class="card-body">
+                            <h2 class="text-center display-5">Send a mail</h2>
+                            <form action="/message/e/<%=email%>" method="post">
+                            <div class="mb-3">
+                            <label for="message" class="form-label">Message :</label>
+                            <textarea id="review" name="message" class="form-control" rows="4" cols="50">
+                            </textarea>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-light">Send EMAIL</button>
+                        </div>
+                            
+                            </form>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<% layout('layout/boilerplate')%>
+<style>
+  
+    .card-body{
+        background-color: darkblue;
+        color: white;
+    }
+</style>
+<div class="container my-5">
+    <div class="row">
+        <% for(let d of disaster){ %>
+            <div class="col-sm-12 com-md-6 col-lg-6 box">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                    <p>Disaster location : <%=d.location%></p>
+                                    <p>Assemble location : <%= d.assemble%> </p>
+                                    <p>Min no of person required : <%= d.persons  %> </p>
+                                    <p><%=d.message%></p>
+                                    <p class="font-monospace mt-2">No of appliers : <%=d.appliers.length%></p>
+                                    <div class="text-center">
+                                    <% if (currentUser._id=="6228d12939813609d531efde"){ %>
+                                        <form class="d-inline" action="/calamity/<%=d._id%>?_method=DELETE" method="POST">
+                                            <button class="btn btn-light p-1">Delete</button>
+                                        </form>
+                                        <a href="/view/<%=d._id%>" class="btn btn-light p-1">View appliers</a>
+                                    <% }%>
+                                            <a href="/apply/<%=d._id%>" class="btn btn-light p-1">JOIN TO HELP</a>
+                                        </div>
+                            </div>
+                        </div>
+            </div>
+            <% } %> 
+    </div>
+</div>

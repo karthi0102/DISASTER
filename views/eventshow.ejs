@@ -1,0 +1,58 @@
+<% layout('layout/boilerplate')%>
+<style>
+    #map {
+    width: 100%;
+    height: 450px;
+    border: 3px solid darkblue;
+}
+img{
+    border-radius: 10px;
+    transition: 500ms;
+}
+img:hover{
+    opacity: 0.5;
+}
+.span{
+    font-size: 22px;
+}
+</style>
+
+<div class="container mb-5">
+    <div class="row">
+            <div class="col-dm-12 col-lg-6 order-lg-1 order-2   mb-5">
+                <img src="<%=event.image%>" class="img" height="450px" width="100%" alt="">
+            </div>
+            <div class="col-md-12 col-lg-6 order-1 order-lg-2 mb-5">
+                <div id='map' >
+                </div>
+            </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-sm-12 col-md-6 offset-md-3">
+                <h3 class=" display-1 text-center"><%=event.title%></h3>
+                <h5 class="text-center display-5 text-muted mt-3"><%=event.location%></h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+                <div class="card shadow">
+                    <div class="card-body">
+                            <p class="lead"><%= event.desc %></p>
+                            <p class="span"> Days: <%=event.days%></p>
+                            <p class="span">  Contact:<%=event.phone%></p>
+                            <a href="/events/<%=event._id%>/edit" class="btn btn-info">Edit</a>
+                            <form action="">
+                                
+                            </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const campground = <%- JSON.stringify(event) %>
+</script>
+
+<script src="/javascripts/showPageMap.js"></script>

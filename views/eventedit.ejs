@@ -1,0 +1,47 @@
+<% layout('layout/boilerplate')%>
+<style>
+  label{
+    font-size: 20px;
+  }
+</style>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-6 offset-3" >  
+              <div class="card shadow">
+                <div class="card-body">
+
+              
+                <h2 class="display-5 text-center">EVENTS</h2>  
+    <form action="/events/<%=event._id%>?_method=PUT"" method="post" >
+        <div class="mb-3">
+        <label for="name"  class="form-label">Title : </label>
+        <input type="text" class="form-control" id="name" name="event[title]" value="<%=event.title%>" autofocus required>   
+    </div>  
+    
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" name="event[location]" id="location" class="form-control" value="<%=event.location%>" required>
+    </div>
+     <div class="mb-3">    
+     <label for="phone"  class="form-label">Phone Number : </label>
+     <input type="phone" class="form-control"id="phone" name="event[phone]" value="<%=event.phone%>" required>  
+    </div>
+     <div class="mb-3">
+     <label for="days"  class="form-label">Days: </label>
+     <input type="text" class="form-control"id="days" name="event[days]" value="<%=event.days%>" required>
+    </div>
+    <div class="mb-3">
+        <label for="day"  class="form-label">Description: </label>
+        <textarea class="form-control" name="event[desc]" id="day" cols="4" rows="5" required>
+            <%= event.desc  %> 
+        </textarea>
+       </div>
+     <div class="d-grid gap-2">
+      <button class="btn btn-danger">Register</button>
+    </div>
+    </form>
+  </div>
+  </div>
+  </div>
+</div>
+</div> 
