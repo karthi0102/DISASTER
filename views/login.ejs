@@ -6,7 +6,16 @@
 .old a{
   text-decoration: none;
   color:darkblue;
+  font-size: large;
 }
+.btn{
+        background-color: darkblue;
+        color: white;
+    }
+    .btn:hover{
+        color: white;
+        background-color: darkblue;
+    }
 </style>
 <div class="container my-5">
     <div class="row">
@@ -21,18 +30,18 @@
 <form action="/login" method="post" autocomplete="off">      
 <div class="mb-3">
     <label for="user"  class="form-label">User Name : </label>
-    <input type="text" class="form-control user"id="user" name="username">  
+    <input type="text" class="form-control user"id="user" name="username" autofocus>  
   </div>
  <div class="mb-3">
  <label for="password"  class="form-label">Password : </label>
  <input type="password" class="form-control"id="password" name="password">
 </div>     
 <div class="d-grid gap-2">
-  <button class="btn btn-info">Login</button>
+  <button class="btn">Login</button>
 </div>
 </form>
 <div class="text-center my-3 old">
-  <a href="/register"><i class="fa-solid fa-users"></i> Not a user</a>
+  <a href="/register" class="old"><i class="fa-solid fa-users"></i> Not a user</a>
 </div>
 </div>
 </div>

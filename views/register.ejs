@@ -1,15 +1,29 @@
 <% layout('layout/boilerplate')%>
 <style>
+    h3{
+        color: darkblue;
+    }
     body{
        background-color: #7DB0D0;
     }
     .new a{
         color: darkblue;
         text-decoration: none;
+        font-size: large;
+  
     }
     label{
-        font-size: 23px;
+        font-size: 22px;
     }
+    .btn{
+        background-color: darkblue;
+        color: white;
+    }
+    .btn:hover{
+        color: white;
+        background-color: darkblue;
+    }
+    
 </style>
 
 
@@ -24,7 +38,7 @@
                 <form action="/register" method="post">
                     <div class="mb-3">
                         <label for="name"  class="form-label">Name : </label>
-                        <input type="text" class="form-control"id="name" name="name">   
+                        <input type="text" class="form-control"id="name" name="name" autofocus>   
                     </div>  
                     <div class="mb-3">
                         <label for="name"  class="form-label">User Name : </label>
@@ -109,7 +123,7 @@
                             <input type="password" class="form-control"id="cpassword" name="cpassword">
                             </div>
                         <div class="d-grid gap-2">
-    <button class="btn btn-info">Register</button> 
+    <button class="btn">Register</button> 
 </div>
                 </form>
                 <div class="text-center my-3 new">
