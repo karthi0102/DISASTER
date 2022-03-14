@@ -66,24 +66,16 @@
         <div class="col-lg-6 offset-3">
                 <div class="text-center">
 
-                        <% if(currentUser._id=="6228d12939813609d531efde") { %>
-                                
-                                <div class="admin my-4">
-                                        <a href="/admin" class="btn btn-light">Go to Admin page</a>
-                                </div>
-                                <%}%>
+                       
                         
-                        <% if (user.ncc || user.nss) { %>
+                        <% if (user.ncc || user.nss || user.ano || user.officer) { %>
                                 <a href="/events" class="btn btn-light">GET Started</a>
                         <% }else{ %>
                                 <a href="/ncc" class="btn btn-light">NCC CADET</a>
                                 <a href="/nss" class="btn btn-light">NSS CADET</a>
                         <%}%>
 
-                        <% if (user.ano) { %>
-                        <a href="/verify" class="btn btn-light">Verify</a>
-                        <% } %>
-                                
+                        
                 </div>
         </div>
 </div>

@@ -276,6 +276,9 @@ app.post('/mail',async(req,res)=>{
 })
 
 app.get('/calamity',async(req,res)=>{
+    if(!req.isAuthenticated()){
+        return res.redirect('/login')
+    }
     const disaster = await Disaster.find({}).populate('appliers');
     res.render('disaster',{disaster})
 })

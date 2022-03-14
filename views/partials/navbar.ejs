@@ -43,23 +43,38 @@ nav button{
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item1">
+          <li class="nav-item">
               <a class="nav-link" href="/events" >Events</a>
           </li>
-          <li class="nav-item1">
-            <a class="nav-link" href="/calamities" >Calamities</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/calamity" >Calamities</a>
         </li>
+        <% if (currentUser) { %>
+          <% if(currentUser._id=="6228d12939813609d531efde"){ %> 
+          <li class="nav-item">
+            <a href="/admin" class="nav-link">Admin</a>
+        </li>
+        <%}%>
+        <% if (currentUser.ano) { %>
+          <li class="nav-item">
+            <a href="/verify" class="nav-link">Verify</a>
+          </li>
+        <% } %>
+        
+        <% } %>
+
+        
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser){ %> 
-        <li class="nav-item1">
+        <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
-        <li class="nav-item1">
+        <li class="nav-item">
           <a class="nav-link" href="/register">Register</a>
         </li>
         <%}else{%>
-        <li class="nav-item1">
+        <li class="nav-item">
           <a class="nav-link" href="/logout" >Logout</a>
         </li>
         <% }%>
