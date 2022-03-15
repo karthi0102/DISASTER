@@ -1,11 +1,42 @@
 <% layout('layout/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/fbutton.css">
 <style>
-  
+  .float{
+    
+	
+
+	color:lightgreen;
+	background-color: white;
+	border-radius:50px;
+	
+	text-align:center;
+	box-shadow: 2px 2px 3px slategray;
+	transition: 500ms;
+}
+
+.float:hover{
+	color:white;
+	background-color:lightgreen;
+}
+
     .card-body{
         background-color: darkblue;
         color: white;
     }
+    .no{
+        background-color: lightgreen;
+        height: 100vh;
+    }
+    marquee img{
+        margin-top:40px;
+        height: 300px;
+    }
 </style>
+<% if(disaster.length==0){ %>
+    <div class="no">
+<marquee behavior="scroll" direction="left" scrollamount="15" class="mt-5"><img src="https://bestanimations.com/media/color-full-earth/896825315globe-earth-animation-15.gif" alt=""> <br> <p class="display-4 font-monospace">"NO MORE DISASTER <br> WORLD IS AT PEACE"</p></marquee>
+    </div>
+    <% } %>  
 <div class="container my-5">
     <div class="row">
         <% for(let d of disaster){ %>
@@ -17,18 +48,16 @@
                                     <p>Min no of person required : <%= d.persons  %> </p>
                                     <p><%=d.message%></p>
                                     <p class="font-monospace mt-2">No of appliers : <%=d.appliers.length%></p>
-                                    <div class="text-center">
-                                    <% if (currentUser._id=="6228d12939813609d531efde"){ %>
-                                        <form class="d-inline" action="/calamity/<%=d._id%>?_method=DELETE" method="POST">
-                                            <button class="btn btn-light p-1">Delete</button>
-                                        </form>
-                                        <a href="/view/<%=d._id%>" class="btn btn-light p-1">View appliers</a>
-                                    <% }%>
-                                            <a href="/apply/<%=d._id%>" class="btn btn-light p-1">JOIN TO HELP</a>
-                                        </div>
+                                    <a href="/calamity/<%=d._id%>" class="btn btn-light">View </a>
+                                    
                             </div>
                         </div>
             </div>
             <% } %> 
     </div>
 </div>
+
+
+<a href="/calamity/new" class="float">
+    <i class="fa fa-plus my-float" ></i>
+</a>

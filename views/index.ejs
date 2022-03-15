@@ -8,58 +8,29 @@
              background-color:#7DB0D0;
      }
      .p{
-             font-size: 25px;
+             font-size: 24px;
+     }
+     .ab{
+        background: #6441A5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color:white;
+     }
+     .ab p{
+             font-size: 20px;
+     }
+     .contact{
+             display: none;
      }
 </style>
 <div class="container my-5">
-        <div class="row">
-                <div class="col-lg-12">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img src="https://mcvt-comet-37.fra1.cdn.digitaloceanspaces.com//previews/51147/preview_51147.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                              <h5><i class="fa-solid fa-house-crack"></i> Disaster</h5>
-                              <p>Disasters can be caused by natural, man-made and technological hazards, as well as various factors that influence the exposure and vulnerability of a community.</p>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <img src="https://cdn9.areadevelopment.com/article_images/id45209_RiseOfNaturalDisasterl500.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                              <h5><i class="fa-solid fa-house-crack"></i> Disaster</h5>
-                              <p>Disasters can be caused by natural, man-made and technological hazards, as well as various factors that influence the exposure and vulnerability of a community</p>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <img src="https://www.rmit.edu.au/content/dam/rmit/au/en/research/networks-centres-groups/disaster-research-and-response-network/news-conversation-bushfire-volunteers-banner-1920.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                              <h5><i class="fa-solid fa-house-crack"></i> Disaster</h5>
-                              <p>Disasters can be caused by natural, man-made and technological hazards, as well as various factors that influence the exposure and vulnerability of a community.</p>
-                            </div>
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" datahttps://www.rmit.edu.au/content/dam/rmit/au/en/research/networks-centres-groups/disaster-research-and-response-network/news-conversation-bushfire-volunteers-banner-1920.jpg-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
-                </div>
-            </div>
+       
 
 
-        <div class="row mt-5">
-            <div class="col-lg-6 offset-3 mt-5">
-                    <h2 class="text-center text-white">Disaster</h2>
-                    <p class="p text-center">A disaster is a serious problem occurring over a short or long period of time that causes widespread human, material, economic or environmental loss which exceeds the ability of the affected community or society to cope using its own resources </p>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                    <h2 class="text-center text-white display-3"><i class="fa-solid fa-house-crack"></i> Disaster</h2>
+                    <p class="p text-center lead">A disaster is a serious problem occurring over a short or long period of time that causes widespread human, material, economic or environmental loss which exceeds the ability of the affected community or society to cope using its own resources </p>
             </div>
         </div>
 <div class="row">
@@ -69,7 +40,7 @@
                        
                         
                         <% if (user.ncc || user.nss || user.ano || user.officer) { %>
-                                <a href="/events" class="btn btn-light">GET Started</a>
+                                
                         <% }else{ %>
                                 <a href="/ncc" class="btn btn-light">NCC CADET</a>
                                 <a href="/nss" class="btn btn-light">NSS CADET</a>
@@ -82,10 +53,10 @@
 <div class="row my-5">
         <div class="col-lg-6">
                 <div class="text-center">
-                        <div class="card shadow">
+                        <div class="card ab shadow" style="height: 340px;">
                                 <div class="card-body">
                                         <h2 class="display-6">ABOUT US</h2>
-                                        <p class="font-monospace">The National Disaster Response Force (NDRF) is an Indian specialized force constituted "for the purpose of special response to a threatening disaster situation or disaster" under the Disaster Management Act, 2005. The "Apex Body for Disaster Management" in India is the National Disaster Management Authority (NDMA). The Chairman of the NDMA is the Prime Minister.</p>
+                                        <p class="lead">The National Disaster Response Force (NDRF) is an Indian specialized force constituted "for the purpose of special response to a threatening disaster situation or disaster" under the Disaster Management Act, 2005. The "Apex Body for Disaster Management" in India is the National Disaster Management Authority (NDMA). The Chairman of the NDMA is the Prime Minister.</p>
                                 </div>
                         </div>
                         
@@ -93,10 +64,10 @@
         </div>
         <div class="col-lg-6">
                 <div class="text-center">
-                <div class="card shadow">
+                <div class="card ab shadow" style="height: 340px;">
                         <div class="card-body">
                                 <h2 class="display-6 text-uppercase">Contact</h2>
-                                <p class="font-monospace">
+                                <p class="lead">
                                 
                                 CONTACT DETAILS OF NDRF HEADQUARTER DIRECTORATE GENERAL ,NATIONAL DISASTER RESPONSE FORCE,
                                 6th FLOOR, NDCC-II BUILDING, JAI SINGH ROAD, NEW DELHI-110001
@@ -105,6 +76,9 @@
                                 EMAIL ID - hq.ndrf@nic.in
                                 EXCHANGE / RECEPTION DETAILS
                                  NO. - 011-23438017,  011-23438019 </p>
+                                 <div class="d-grid gap-2 mt-2">
+                                 <a href="#contact" class="btn btn-light c">Contact us</a>
+                                </div>
                         </div>
                 </div>
                
@@ -112,14 +86,18 @@
         </div>
 </div>
 
+<div id="contact">
 
-<div class="row">
+
+<div class="row contact">
         <div class="col-md-6 offset-md-3">
                 <div class="card shadow">
                         <div class="card-body">
-                                <h2 class="text-center display-6">CONTACT WITH US</h2>
+                               
                                 <form action="/mail" method="post">
-                                        <div class="mb-3">
+                                        <fieldset>
+                                                <legend> <i class="fa-solid fa-envelope fa-bounce" style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0;" ></i> CONTACT WITH US</legend>                                      
+                                                  <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
                                                 <input type="email" name="email" id="email" class="form-control">
                                         </div>
@@ -130,9 +108,19 @@
                                 <div class="d-grid gap-2">
                                         <button class="btn btn-secondary">CONTACT</button>
                                 </div>
+                        </fieldset>
                                 </form>
                         </div>
                 </div>
         </div>
 </div>
 </div>
+</div>
+<script>
+let btn = document.querySelector('.c')
+const form =document.querySelector('.contact')
+btn.addEventListener('click',()=>{
+form.style.display='block'
+})
+</script>
+

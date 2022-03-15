@@ -90,7 +90,13 @@ app.get('/verify',async(req,res)=>{
     const id=req.user._id
     const user = await User.findById(id);
    let college=user.college
-  const nccUser= await User.find({college}).populate('ncc')
+  const nUser= await User.find({college}).populate('ncc')
+  let nccUser=[]
+  for(let u of nUser){
+      if(u.verified==0){
+          nccUser.push(u)
+      }
+  }
   res.render('verify',{user,nccUser})
     
 })
@@ -292,10 +298,10 @@ app.post('/calamity',async(req,res)=>{
     await disaster.save();
     res.redirect('/calamity')
 })
-app.delete('/calamity/:id',async(req,res)=>{
+app.get('/calamity/:id',async(req,res)=>{
     const {id}=req.params;
-    const disaster =await Disaster.findByIdAndDelete(id);
-    res.redirect('/admin')
+    const disaster = await Disaster.findById(id)
+    res.render('disasterShow',{disaster})
 })
 app.get('/apply/:id',async(req,res)=>{
     const {id}=req.params;
@@ -304,6 +310,12 @@ app.get('/apply/:id',async(req,res)=>{
     disaster.appliers.push(uId)
     await disaster.save();
     res.redirect('/disaster')
+})
+
+app.delete('/calamity/:id',async(req,res)=>{
+    const {id}=req.params;
+    const disaster =await Disaster.findByIdAndDelete(id);
+    res.redirect('/calamity')
 })
 app.get('/view/:id',async(req,res)=>{
     const {id} =req.params;

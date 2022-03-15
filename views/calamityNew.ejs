@@ -1,14 +1,15 @@
 <% layout('layout/boilerplate')%>
 <style>
-  body{
-    background-image: url('');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+ body{
+   background-color:  #7DB0D0;
+ }
+ label{
+   font-size: 20px;
+ }
 </style>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-6 offset-3" >   
+            <div class="col-5 offset-4" >   
                 <div class="card shadow">
                     <div class="card-body">
 
@@ -32,8 +33,9 @@
         <label for="message"  class="form-label">Message: </label>
         <textarea name="calamity[message]" class="form-control" id="message" cols="30" rows="5"></textarea>
       </div>
-      <button class="btn btn-primary">Register</button>
-     
+      <div class="d-grid gap-2">
+      <button class="btn btn-primary">CREATE</button>
+    </div>
     </form>
 </div>
 </div>

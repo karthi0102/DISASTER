@@ -1,0 +1,34 @@
+<% layout('layout/boilerplate')%>
+<style>
+    marquee{
+        font-size: 25px;
+    }
+</style>
+<div class="container my-auto">
+    <div class="row">
+        <div class="col-lg-8 offset-2">
+            <div class="card shadow">
+                <div class="card-body">
+                        <p class="font-monospace">
+                            <%=disaster.message%>
+                        </p>
+                        <h5>Disaster location : <%=disaster.location%></h5>
+                        <h5>Assemble location : <%=disaster.assemble%></h5>
+                        <h6>Minimum number of persons required : <%=disaster.persons%></h6>
+                        <% if (currentUser._id="6221086d23587ae6effc18f6") { %>
+                            <marquee behavior="" direction="">Copy the below link</marquee>
+                            <p class="display-6 text-center">/calamity/<%=disaster._id%></p>
+                            <form class="d-inline" action="/calamity/<%=disaster._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger p-1">Delete</button>
+                            </form>
+                            <a href="/view/<%=disaster._id%>">View appliers</a>
+                            <p class="font-monospace mt-2">No of appliers : <%=disaster.appliers.length%></p>
+                        <% }%>
+                                <a href="/apply/<%=disaster._id%>" class="btn btn-info">JOIN TO HELP</a>
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

@@ -46,10 +46,11 @@ nav button{
           <li class="nav-item">
               <a class="nav-link" href="/events" >Events</a>
           </li>
+         
+        <% if (currentUser) { %>
           <li class="nav-item">
             <a class="nav-link" href="/calamity" >Calamities</a>
         </li>
-        <% if (currentUser) { %>
           <% if(currentUser._id=="6228d12939813609d531efde"){ %> 
           <li class="nav-item">
             <a href="/admin" class="nav-link">Admin</a>
