@@ -6,7 +6,8 @@ const eventSchema = new Schema({
     image:String,
     desc:String,
     location:String,
-    days:String,
+    start:String,
+    end:String,
     phone:Number,
     geometry: {
         type: {

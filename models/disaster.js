@@ -7,6 +7,8 @@ const disasterSchema = new Schema({
     assemble:String,
     location:String,
     persons:Number,
+    days:Number,
+    date:String,
     appliers:[
         {
         type:Schema.Types.ObjectId,

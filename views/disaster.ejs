@@ -1,11 +1,9 @@
 <% layout('layout/boilerplate')%>
 <link rel="stylesheet" href="/stylesheets/fbutton.css">
 <style>
-
-    .card-body{
-        background-color: darkblue;
-        color: white;
-    }
+body{
+    background-color: #7Db0D0;
+}
     .zero{
         margin-top:260px;
     }
@@ -27,17 +25,19 @@
     </div>
     <% } %>  
 <div class="container my-5">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <% for(let d of disaster){ %>
-            <div class="col-sm-12 com-md-6 col-lg-6 box">
+            <div class="col-sm-12 com-md-6 col-lg-4">
                         <div class="card shadow">
                             <div class="card-body">
                                     <p>Disaster location : <%=d.location%></p>
                                     <p>Assemble location : <%= d.assemble%> </p>
-                                    <p>Min no of person required : <%= d.persons  %> </p>
-                                    <p><%=d.message%></p>
-                                    <p class="font-monospace mt-2">No of appliers : <%=d.appliers.length%></p>
-                                    <a href="/calamity/<%=d._id%>" class="btn btn-light">View </a>
+                                
+                                    <p><%=d.message.substring(0,150)%></p>
+                                   <div class="d-grid gap-2">
+                                    <a href="/calamity/<%=d._id%>" class="btn btn-primary">View ......</a>
+                                   </div>
+                                   
                                     
                             </div>
                         </div>

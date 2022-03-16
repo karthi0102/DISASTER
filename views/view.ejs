@@ -4,7 +4,27 @@
         background-color: darkblue;
         color:white
     }
+    .zero{
+        
+        margin-top:260px;
+    }
+    .zero p{
+        color: darkblue;
+        font-size: 20px;
+    }
+    .zero i{
+        font-size: 50px;
+    }
 </style>
+<% if (disaster.appliers.length==0) { %>
+    <div class="row zero">
+        <div class="col-lg-10 offset-1 text-center">
+            <i class="fa-regular fa-face-angry"></i>
+            <p class="mt-2">No on have applied to volunteer...!</p>
+            <p>ANO'S PLEASE INFORM YOUR STUDENT TO SHARE </p>
+        </div>
+    </div>
+<% } %>
 <div class="container">
     <div class="row d-flex justify-content-center">
         <% for(let apply of disaster.appliers) {%>

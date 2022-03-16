@@ -1,46 +1,55 @@
 <% layout('layout/boilerplate')%>
 <style>
+  body{
+    background:#7DB0D0;
+  }
   label{
     font-size: 20px;
   }
+  .btn,.btn:hover{
+    background-color: darkblue;
+    color: white;
+  }
 </style>
-    <div class="container my-5">
+    <div class="container my-3">
         <div class="row">
-            <div class="col-6 offset-3" >  
+            <div class="col-lg-6 offset-3" >  
               <div class="card shadow">
                 <div class="card-body">
-
-              
-                <h2 class="display-5 text-center">EVENTS</h2>  
+                <h2 class="text-center">EVENTS</h2>  
     <form action="/events" method="post" >
-        <div class="mb-3">
+        <div class="mb-1">
         <label for="name"  class="form-label">Title : </label>
         <input type="text" class="form-control" id="name" name="event[title]" required>   
     </div>  
-    <div class="mb-3">
+    <div class="mb-1">
       <label for="image" class="form-label">IMAGE:</label>
       <input type="text" class="form-control" name="event[image]" id="image">
     </div>
-    <div class="mb-3">
+    <div class="mb-1">
       <label for="location" class="form-label">Location</label>
       <input type="text" name="event[location]" id="location" class="form-control">
     </div>
-     <div class="mb-3">    
+     <div class="mb-1">    
      <label for="phone"  class="form-label">Phone Number : </label>
      <input type="phone" class="form-control"id="phone" name="event[phone]" required>  
     </div>
-     <div class="mb-3">
-     <label for="days"  class="form-label">Days: </label>
-     <input type="text" class="form-control"id="days" name="event[days]" required>
+     <div class="mb-1">
+     <label for="days"  class="form-label">Starting Date: </label>
+     <input type="date" class="form-control"id="days" name="event[start]" required>
     </div>
-    <div class="mb-3">
-        <label for="day"  class="form-label">Description: </label>
-        <textarea class="form-control" name="event[desc]" id="day" cols="4" rows="4"></textarea>
+    <div class="mb-1">
+      <label for="days"  class="form-label">ENDING Date: </label>
+      <input type="date" class="form-control"id="days" name="event[end]" required>
+     </div>
+    <div class="mb-1">
+        <label for="day"  class="form-label">About </label>
+        <textarea class="form-control" name="event[desc]" id="day" cols="3" rows="3"></textarea>
        </div>
-     <div class="d-grid gap-2">
+     <div class="d-grid gap-1">
 
     
-      <button class="btn btn-danger">Register</button>
+      <button class="btn">Register</button>
     </div>
     </form>
   </div>

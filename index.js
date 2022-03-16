@@ -188,7 +188,12 @@ app.put('/events/:id',async(req,res)=>{
 
 })
 
+app.delete('/events/:id',async(req,res)=>{
+    const {id}=req.params;
+    const event = await Event.findByIdAndDelete(id)
+    res.redirect('/events')
 
+})
 app.get('/admin',async(req,res)=>{
         const user = await User.find();
         const arr=[]
