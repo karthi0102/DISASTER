@@ -3,17 +3,33 @@
     .a{
         color:darkblue !important;
     }
-    .box{
-    box-shadow: 5px 5px 5px darkblue 5px;
-        }
+    .zero{
+        margin-top:260px;
+    }
+    .zero p{
+        color: darkblue;
+        font-size: 20px;
+    }
+    .zero i{
+        font-size: 50px;
+    }
 </style>
+<% if (events.length==0) { %>
+
+     <div class="row zero">
+         <div class="col-lg-10 offset-1 text-center">
+            <i class="fa-regular fa-face-angry"></i>
+                <p class="mt-2">There are no events at this time...!!</p>
+                <p>Please wait for further events</p>
+         </div>
+     </div>
+ 
+<% } %>
 <link rel="stylesheet" href="/stylesheets/card.css">
 <link rel="stylesheet" href="/stylesheets/fbutton.css">
 <div class="container mt-2">
     <div class="team-boxed ">
-        
         <div class="row people d-flex justify-content-center ">
-           
             <% for(let e of events) {%>
                 <div class=" col-sm-12 col-md-6 col-lg-4 item">
                     <div class="box animate__animated animate__zoomIn"><img class="rounded-circle" src="<%=e.image%>" style="height: 140px;">

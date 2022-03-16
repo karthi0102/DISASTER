@@ -1,59 +1,76 @@
 <% layout('layout/boilerplate')%>
 <style>
     body{
-        background-color:lightskyblue
-    }
+        background-color:#7DB0D0;
+        }
     .card{
-        border-radius: 30px;
+        border-radius: 6px;
     }
-  .card-body{
-      background-color: darkblue;
-      color:white;
+.btn,.btn:hover{
+    background-color: darkblue;
+    color:white
+}
+  label{
+      font-size: 20px;
+  }
+  .icon{
+      color: white;
+  }
+  .icon i{
+      font-size: 50px;
   }
 </style>
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-lg-6 offset-3">
-                    <div class="card shadow">
-                       
+
+<div class="container mt-5">
+    <h3 class="text-center"><span class="badge bg-light text-primary"><%=user.length%></span> members avaliable in this location <%=district%></h3>
+    <h4 class="text-center"><span class="badge bg-light text-primary"><%=ncc.length%></span> NCC <span class="badge bg-light text-primary"><%= nss.length%> </span> NSS</h4>
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-4">
+                    <div class="card shadow mt-5">
                         <div class="card-body">
-                            <h2 class="text-center display-5">Send a message </h2>
+                            <h2 class="text-center display-6">ALERT TO EVRYONE BY SMS </h2>
                             <form action="/message/<%=phone%>" method="post">
                             <div class="mb-3">
                             <label for="message" class="form-label">Message :</label>
-                            <textarea id="review" name="message" class="form-control" rows="4" cols="50">
+                            <textarea id="review" name="message" class="form-control" rows="3" cols="3">
                             </textarea>
-                        </div>
+                             </div>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-light">Send Message</button>
+                            <button class="btn">Send Message</button>
                         </div>
                              
                             </form>
                         </div>
                     </div>
+</div>
+                    <div class="col-lg-4">
+                        <div class="card shadow mt-5">
+                           
+                            <div class="card-body">
+                                <h2 class="text-center display-6">ALERT TO EVERYONE BY MAIL</h2>
+                                <form action="/message/e/<%=email%>" method="post">
+                                <div class="mb-3">
+                                <label for="message" class="form-label">Message :</label>
+                                <textarea id="review" name="message" class="form-control" rows="3" cols="3">
+                                </textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn">Send EMAIL</button>
+                            </div>
+                                
+                                </form>
+                            </div>
+                        </div>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row mt-5">
+
+    <div class="row mt-5 icon d-flex justify-content-center">
         <div class="col-lg-6 offset-3">
-                    <div class="card shadow">
-                       
-                        <div class="card-body">
-                            <h2 class="text-center display-5">Send a mail</h2>
-                            <form action="/message/e/<%=email%>" method="post">
-                            <div class="mb-3">
-                            <label for="message" class="form-label">Message :</label>
-                            <textarea id="review" name="message" class="form-control" rows="4" cols="50">
-                            </textarea>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-light">Send EMAIL</button>
-                        </div>
-                            
-                            </form>
-                        </div>
-                    </div>
+            <span ><i class="fa-solid fa-message"></i></span>
+            
+            <span class="mx-5">--------------------------------</span>
+            <span><i class="fa-solid fa-message"></i></span>
+            
         </div>
     </div>
-</div>

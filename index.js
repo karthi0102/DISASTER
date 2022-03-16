@@ -203,15 +203,23 @@ app.post('/admin',async(req,res)=>{
     const {district}=req.body
     const user = await User.find({district})
     const arr=[];
-    const arr1=[]
+    const arr1=[];
+    const ncc=[];
+    const nss=[];
     for(let u  of user){
+        if(u.ncc||u.ano||u.officer){
+            ncc.push(u)
+        }
+        if(u.nss){
+            nss.push(useUnifiedTopology)
+        }
         arr.push(u.phone)
         arr1.push(u.email)
         }
         
         let phone = [...new Set(arr)]
         let email =[...new Set(arr1)]
-        res.render('message',{phone,email})
+        res.render('message',{phone,email,user,district,nss,ncc})
 })
 app.get('/dashboard',async(req,res)=>{
     const users = await User.find({}).populate('ncc').populate('nss').populate('officer').populate('ano');
@@ -364,7 +372,7 @@ app.post("/message/e/:email",async(req,res)=>{
     const email=req.params.email;
     const message=req.body.message
     sendMail.sendMail(email,message);
-    res.redirect('/');
+    res.redirect('/admin');
 })
 app.post('/message/:phone',async (req,res)=>{
     try{

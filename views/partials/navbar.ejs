@@ -15,7 +15,7 @@
       border-radius: 10px;
   }
   nav .navbar-brand:hover{
-
+          color:darkblue;
            transform: none;
            border-bottom: none;
   }
@@ -51,7 +51,7 @@ nav button{
           <li class="nav-item">
             <a class="nav-link" href="/calamity" >Calamities</a>
         </li>
-          <% if(currentUser._id=="6228d12939813609d531efde"){ %> 
+          <% if(currentUser._id=="6231ece349ed130b1a1a5871"){ %> 
           <li class="nav-item">
             <a href="/admin" class="nav-link">Admin</a>
         </li>
@@ -64,7 +64,9 @@ nav button{
         
         <% } %>
 
-        
+        <li class="nav-item">
+          <a href="/disaster" class="nav-link">Contact</a>
+        </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if(!currentUser){ %> 

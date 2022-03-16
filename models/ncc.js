@@ -8,7 +8,7 @@ const nccSchema = new Schema({
                 enum:['sd','sw']
             },
             battalion:String,
-            regimental:Number,
+            regimental:String,
             cadet:String,
             verified:{
                 type:Number,

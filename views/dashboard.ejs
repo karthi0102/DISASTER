@@ -133,67 +133,57 @@
                 <div class="text-center">
                     <h1 class="display-3">Dashboard</h1>
                 </div>
-                <div id="chart_div" ></div>
+                <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+                <div id="ncc_gender"></div>
+                <div id="nss_gender"></div>
+                <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
                 </div>
-                
+             
                
+               
+               <script>
+                        const ncc  = <%-JSON.stringify(ncc)%>;
+               const nss= <%- JSON.stringify(nss) %>;
+               const user = <%-JSON.stringify(users)%>;
+               const sw = <%-sw%>;
+                const sd=<%-sd%>;
+                const male = <%-male%>;
+                const female=<%-female%>;
+               </script>
                 
-                
-       
-    
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                  google.charts.load("current", {packages:['corechart']});
+                  google.charts.setOnLoadCallback(drawChart);
+                  function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                      ["Element", "Density", { role: "style" } ],
+                      ["Copper", 8.94, "#b87333"],
+                      ["Silver", 10.49, "silver"],
+                      ["Gold", 19.30, "gold"],
+                      ["Platinum", 21.45, "color: #e5e4e2"]
+                    ]);
+              
+                    var view = new google.visualization.DataView(data);
+                    view.setColumns([0, 1,
+                                     { calc: "stringify",
+                                       sourceColumn: 1,
+                                       type: "string",
+                                       role: "annotation" },
+                                     2]);
+              
+                    var options = {
+                      title: "USERS PER MONTH",
+                      width: 600,
+                      height: 400,
+                      bar: {groupWidth: "95%"},
+                      legend: { position: "none" },
+                    };
+                    var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                    chart.draw(view, options);
+                }
+                </script>
+              
 
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script >
-
-        const ncc  = <%-JSON.stringify(ncc)%>;
-        const nss= <%- JSON.stringify(nss) %>;
-        const user = <%-JSON.stringify(users)%>;
-      // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows([
-          ['ncc',ncc.length],
-          ['nss',nss.length],
-          ['user',user.length]
-         
-        ]);
-
-        // Set chart options
-        var options = {'title':'Community around India',
-                       'width':1000,
-                       'height':500};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-crossorigin="anonymous"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-crossorigin="anonymous"></script>
+<script src="/javascripts/total.js"></script>
 <script src="/javascripts/data.js"></script>

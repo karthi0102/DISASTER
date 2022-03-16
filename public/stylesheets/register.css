@@ -1,0 +1,52 @@
+h1 {
+    text-align: center;  
+  }
+  .tab {
+    display: none;
+  }    
+ .btn,.btn:hover{
+     background-color: darkblue;
+     color: white;
+ }
+  button:hover {
+    opacity: 0.8;
+  }
+  #prevBtn {
+    background-color: darkblue;
+  }
+
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: darkblue;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  .step.finish {
+    background-color: darkblue;
+  }
+  h3{
+      color: darkblue;
+  }
+  body{
+     background-color: #7DB0D0;
+  }
+  .new a{
+      color: darkblue;
+      text-decoration: none;
+      font-size: large;
+  }
+  label{
+      font-size: 22px;
+  }
+  .old{
+      text-decoration: none;
+      font-size: 20px;
+  }

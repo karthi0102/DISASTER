@@ -7,23 +7,36 @@
         text-decoration: none;
         color: darkblue;
     }
+    .btn,.btn:hover{
+        background-color: darkblue;
+        color: white;
+    }
+    label{
+        font-size: 20px;
+    }
+    legend{
+        font-size: 24px;
+    }
 </style>
 <div class="container my-5">
     <div class="row">
         <div class="col-lg-4 offset-4"> 
-           
             <div class="card shadow">
-           
                 <div class="card-body">
-                        <h2 class="text-center">Ncc Cadet</h2>
+                       
              
     <form action="/ncc" method="post" >
-       
-    <div class="mb-3">  
+       <fieldset>
+           <legend class="mb-2">NCC CADET</legend>
+    <div class="form-group mb-3">  
     <label for="gender">Gender: </label>
-        &nbsp<span>&nbsp SW</span><input class="form-check-input" type="radio" id="gender" value="sd" name="ncc[gender]" aria-label="...">
-        <span>&nbsp SD</span><input class="form-check-input" type="radio" id="gender"  name="ncc[gender]" value="sw" aria-label="...">
-    </div>
+    <span id="gender">
+    <label for="sd" class="form-check-label">SD</label>
+        <input class="form-check-input" type="radio" id="sd" value="sd" name="ncc[gender]" aria-label="...">
+        <label for="sw" class="form-check-label">SW</label>
+        <input class="form-check-input" type="radio" id="sw"  name="ncc[gender]" value="sw" aria-label="...">
+    </span>
+</div>
    
     <div class="mb-3">
         <label for="group"  class="form-label">Group : </label>
@@ -45,13 +58,11 @@
     <div class="d-grid gap-2">
 
    
-    <button class="btn btn-primary">Register</button> 
+    <button class="btn">Register</button> 
 </div>
+</fieldset>
     </form>
-    <div class="text-center link mt-3">
-        <a href="/officer" class="p-2" >Commanding Officer</a>
-        <a href="/ano" class="p-2">College Ano </a>
-    </div>
+    
 </div>
 </div>
 
