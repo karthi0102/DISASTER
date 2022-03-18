@@ -54,3 +54,9 @@ body{
 <a href="/calamity/new" class="float">
     <i class="fa fa-plus my-float" ></i>
 </a>
+<script>
+    const disaster= '<%-JSON.stringify(disaster)%>';
+    if(disaster.length==0){
+        document.body.style.background='white'
+    }
+</script>

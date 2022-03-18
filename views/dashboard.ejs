@@ -1,4 +1,5 @@
 <% layout('layout/boilerplate')%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 <style>
     .side{
        height: 100vh;
@@ -176,13 +177,14 @@
             </div>
                 
                 <div class="container">
-                    <table >
+                    <table style="display: none;"  id="register_table">
                         <thead>
                             <th>Name</th>
                             <th>PHONE</th>
                             <th>EMAIL</th>
                             <th>Location</th>
                             <th>College</th>
+                            <th>Community</th>
                         </thead>
                         <tbody>
                             <% for(let u of users){ %> 
@@ -192,10 +194,28 @@
                                 <td><%= u.email  %> </td>
                                 <td><%=u.district%>,<%=u.state%></td>
                                 <td><%= u.college  %> </td>
+                                <td>
+                                    <% if(u.ncc){ %>
+                                        NSS(Cadet)
+                                    <% }else if(u.ano){ %>
+                                        NSS(ANO)
+                                        <% } else if(u.officer){%>
+                                            NSS(COMMANDING OFFICER)
+                                            <% }else if(u.nss) {%>
+                                                NSS
+                                                <% } else{%>
+                                                    ADMIN
+                                                    <% } %>  
+                                </td>
                             </tr>
                             <% } %>
                         </tbody>
                     </table>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button onclick="export_data()" class="btn btn-primary">DOWNLOAD EXCEL</button>
+                    </div>
                 </div>
                <script>
                         const ncc  = <%-JSON.stringify(ncc)%>;
@@ -207,7 +227,22 @@
                 const sd=<%-sd%>;
                 const male = <%-male%>;
                 const female=<%-female%>;
-               </script>
+            
+    const len =<%-JSON.stringify(disaster.appliers)%>;
+    if(len.length===0){
+        document.body.style.background='white';
+    }
+    function export_data(){
+    let data=document.getElementById('register_table');
+   
+    var fp=XLSX.utils.table_to_book(data,{sheet:'event'});
+    XLSX.write(fp,{
+      bookType:'xlsx',
+      type:'base64'
+    });
+    XLSX.writeFile(fp, `Report.xlsx`);
+  }
+</script>
              
               
 
