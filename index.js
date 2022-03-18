@@ -27,7 +27,8 @@ const LocalStrategy = require('passport-local');
 const fast2sms=require('fast-two-sms')
 const ExpressError=require('./utils/ExpressError')
 const Disaster = require("./models/disaster");
-mongoose.connect('mongodb://localhost:27017/Disaster',{useNewUrlParser:true,useUnifiedTopology:true})
+const db=process.env.DB_URL;
+mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true})
 .then( () => {
     console.log("Connection open")
 }).catch(err => {
@@ -122,6 +123,8 @@ app.post('/officer',async(req,res)=>{
     const user = await User.findById(id);
     const officer = new Officer(req.body.ncc);
     officer.verified=0;
+    officer.state=user.state;
+    officer.district=user.district;
     officer.author=user._id;
     user.officer=officer._id;
     await officer.save();
@@ -144,6 +147,8 @@ app.post('/ano',async(req,res)=>{
     const user = await User.findById(id);
     const ano = new Ano(req.body.ncc);
     ano.verified=0;
+    ano.state=user.state;
+    ano.district=user.district;
     ano.author=user._id;
     user.ano=ano._id;
     await ano.save();
@@ -266,19 +271,96 @@ app.get('/dashboard',async(req,res)=>{
         }
     }
 
-    res.render("dashboard.ejs",{users,ncc,nss,officer,ano,sw,sd,male,female,display})
+    res.render("dashboard.ejs",{users,ncc,nss,officer,ano,sw,sd,male,female})
 })
 
-app.post('/dashboard',async(req,res)=>{
-        const {state,district}=req.body;
-        const users = await User.find({state,district})
-        const ncc = await Ncc.find({state,district})
-        const nss=await Nss.find({state,district})
-        const officer=await Officer.find({}).populate("author")
-        const ano =await Ano.find({}).populate('author')
-        let display=1
-        res.render('dashboard',{users,display,ncc,nss,officer,ano})
+app.post('/dashboard/state',async(req,res)=>{
+    const {state}=req.body;
+    console.log(state)
+    const users = await User.find({state}).populate('nss').populate('ncc').populate('officer').populate('ano');
+    const ncc = await Ncc.find({state}).populate('author');
+    const nss=await Nss.find({state}).populate('author');
+    const officer=await Officer.find({state}).populate("author")
+    const ano =await Ano.find({state}).populate('author')
+    let sw=0
+    let sd=0
+    let male=0
+    let female=0
+   
+    for(let o of officer){
+        if(o.gender=='sw'){
+            sw+=1;
+        }else{
+            sd+=1;
+        }
+    }
+    for(let a of ano){
+        if(a.gender=='sw'){
+            sw+=1;
+        }else{
+            sd+=1;
+        }
+    }
+    for(let n of ncc){
+        if(n.gender=='sw'){
+            sw+=1
+        }else{
+            sd+=1;
+        }
+    }
+    for(let n of nss){
+        if(n.gender=='Male'){
+            male+=1;
+        }else{
+            female+=1;
+        }
+    }
+    res.render('dashboard',{users,ncc,nss,officer,ano,sw,sd,male,female})
 })
+app.post('/dashboard/district',async(req,res)=>{
+    const {district}=req.body;
+   
+    const users = await User.find({district}).populate('nss').populate('ncc').populate('officer').populate('ano');
+    const ncc = await Ncc.find({district}).populate('author');
+    const nss=await Nss.find({district}).populate('author');
+    const officer=await Officer.find({district}).populate("author");
+    const ano =await Ano.find({district}).populate('author')
+    let sw=0
+    let sd=0
+    let male=0
+    let female=0
+   
+    for(let o of officer){
+        if(o.gender=='sw'){
+            sw+=1;
+        }else{
+            sd+=1;
+        }
+    }
+    for(let a of ano){
+        if(a.gender=='sw'){
+            sw+=1;
+        }else{
+            sd+=1;
+        }
+    }
+    for(let n of ncc){
+        if(n.gender=='sw'){
+            sw+=1
+        }else{
+            sd+=1;
+        }
+    }
+    for(let n of nss){
+        if(n.gender=='Male'){
+            male+=1;
+        }else{
+            female+=1;
+        }
+    }
+    res.render('dashboard',{users,ncc,nss,officer,ano,sw,sd,male,female})
+})
+
 app.post('/mail',async(req,res)=>{
     const {feedback,email} = req.body;
 
@@ -331,9 +413,13 @@ app.delete('/calamity/:id',async(req,res)=>{
     res.redirect('/calamity')
 })
 app.get('/view/:id',async(req,res)=>{
+    if(!req.isAuthenticated()){
+       return res.redirect('/login')
+    }
     const {id} =req.params;
+    const user=await User.findById(req.user._id).populate('ano');
     const disaster =await Disaster.findById(id).populate('appliers');
-    res.render('view',{disaster})
+    res.render('view',{disaster,user})
 })
 app.get('/ncc',(req,res)=>{
     res.render('ncc')
@@ -346,6 +432,8 @@ app.post("/ncc",async(req,res)=>{
     const ncc = new Ncc(req.body.ncc);
     ncc.verified=0;
     ncc.author=req.user._id;
+    ncc.state=user.state;
+    ncc.district=user.district;
     user.ncc=ncc._id;
     await ncc.save();
     await user.save();
@@ -355,7 +443,10 @@ app.post("/ncc",async(req,res)=>{
     }
 })
 app.get('/nss',(req,res)=>[
-    res.render('nss')
+    college.getData().then(data=>{
+        res.render("nss.ejs",{data});
+    })
+   
 ])
 app.post('/nss',async(req,res)=>{
     if(req.isAuthenticated()){
@@ -363,8 +454,10 @@ app.post('/nss',async(req,res)=>{
     const user= await User.findById(id)
     const nss = new Nss(req.body.nss)
     nss.author=req.user._id;
-    nss.verified=1;
+    nss.verified=0;
     user.nss=nss._id;
+    nss.state=user.state;
+    nss.district=user.district;
     await nss.save()
     await user.save()
     res.redirect('/')

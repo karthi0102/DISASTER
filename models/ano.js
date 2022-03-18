@@ -7,6 +7,8 @@ const officerSchema = new Schema({
         type:String,
         enum:['sd','sw']
     },
+    state:String,
+    district:String,
     battalion:String,
     regimental:Number,
     cadet:String,

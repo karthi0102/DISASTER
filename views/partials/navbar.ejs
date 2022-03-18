@@ -52,9 +52,16 @@ nav button{
             <a class="nav-link" href="/calamity" >Calamities</a>
         </li>
           <% if(currentUser._id=="623210dcbfa2f12deb3a3028"){ %> 
-          <li class="nav-item">
-            <a href="/admin" class="nav-link">Admin</a>
-        </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Admin
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/dashboard">DASHBOARD</a></li>
+                <li><a class="dropdown-item" href="/admin">MESSAGE</a></li>
+            
+              </ul>
+       </li>
         <%}%>
         <% if (currentUser.ano) { %>
           <li class="nav-item">

@@ -6,6 +6,9 @@ const nssSchema=new Schema({
         type:String,
         enum:['Male','Female']
     },
+
+    state:String,
+    district:String,
     certificate:String,
     author:{
         type:Schema.Types.ObjectId,

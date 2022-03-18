@@ -1,12 +1,16 @@
 <% layout('layout/boilerplate')%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 <style>
-    .card-body{
-        background-color: darkblue;
-        color:white
+    table{
+        display: none;
     }
+    body{
+        background-color: #7DB0D0;
+    }
+    
     .zero{
-        
-        margin-top:260px;
+ 
+    margin-top: 260px;
     }
     .zero p{
         color: darkblue;
@@ -15,28 +19,98 @@
     .zero i{
         font-size: 50px;
     }
+    li{
+        font-size: 18px;
+    }
 </style>
 <% if (disaster.appliers.length==0) { %>
-    <div class="row zero">
-        <div class="col-lg-10 offset-1 text-center">
+    <div class="row zero ">
+        <div class="col-lg-10 offset-1 text-center ">
             <i class="fa-regular fa-face-angry"></i>
             <p class="mt-2">No on have applied to volunteer...!</p>
             <p>ANO'S PLEASE INFORM YOUR STUDENT TO SHARE </p>
         </div>
     </div>
 <% } %>
-<div class="container">
+<div class="container mt-5">
     <div class="row d-flex justify-content-center">
         <% for(let apply of disaster.appliers) {%>
         <div class="col-sm-12 col-md-6 col-lg-4 ">
             <div class="card shadow">
                 <div class="card-body">
-                        <h2><%=apply.name%></h2>
-                        <h5><%= apply.email  %> </h5>
-                        <h2><%= apply.phone  %> </h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><%=apply.name%></li>
+                        <li class="list-group-item"><%= apply.email  %></li>
+                        <li class="list-group-item"><%= apply.phone  %></li>
+                        <li class="list-group-item"><%=apply.state%>,<%=apply.district%></li>
+                    </ul>
+                       
                 </div>
             </div>
         </div>
         <% } %> 
     </div>
 </div>
+<% if(currentUser.ano) {%>
+    <div class="container">
+        <table class="table" id="register_table">
+            <thead>
+                <th>NAME</th>
+                <th>PHONE NO</th>
+                <th>EMAIL</th>
+                <th>LOCATION</th>
+            </thead>
+            <% for(let apply of disaster.appliers){ %> 
+                <% if(user.college==apply.college && user.name!=apply.name){ %> 
+                <tr>
+                    <td><%= apply.name  %> </td>
+                    <td><%= apply.phone  %> </td>
+                    <td><%= apply.email  %> </td>
+                    <td> <%=apply.state%>,<%=apply.district%></td>
+                </tr>
+                <% } %> 
+                <%}%>
+        </table>
+    </div>
+
+<% }else{ %> 
+<div class="container">
+    <table class="table" id="register_table">
+        <thead>
+            <th>NAME</th>
+            <th>PHONE NO</th>
+            <th>EMAIL</th>
+            <th>LOCATION</th>
+        </thead>
+        <% for(let apply of disaster.appliers){ %> 
+            <tr>
+                <td><%= apply.name  %> </td>
+                <td><%= apply.phone  %> </td>
+                <td><%= apply.email  %> </td>
+                <td> <%=apply.state%>,<%=apply.district%></td>
+            </tr>
+            <%}%>
+    </table>
+</div>
+<% } %> 
+<div class="text-center my-3">
+
+
+<button onclick="export_data()" class="btn btn-primary">DOWNLOAD REPORT</button>
+</div>
+<script>
+    const len =<%-JSON.stringify(disaster.appliers)%>;
+    if(len.length===0){
+        document.body.style.background='white';
+    }
+    function export_data(){
+    let data=document.getElementById('register_table');
+   
+    var fp=XLSX.utils.table_to_book(data,{sheet:'event'});
+    XLSX.write(fp,{
+      bookType:'xlsx',
+      type:'base64'
+    });
+    XLSX.writeFile(fp, `Report.xlsx`);
+  }
+</script>

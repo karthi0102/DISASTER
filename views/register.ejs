@@ -4,9 +4,10 @@
     <div class="row">
         <div class="col-lg-4 offset-4 mt-2 mb-2" > 
             <div class="card shadow">
-                <img src="https://media.istockphoto.com/photos/businessman-pressing-recovery-on-virtual-screen-internet-and-concept-picture-id1335531271?b=1&k=20&m=1335531271&s=170667a&w=0&h=smEouKrQjxbf2HGDiEwCih-cp9eJ-LjXhis2rmKsrdI=" height="270px"  alt="">
+                <img src="/images/register.jpg"class="card-img-top" alt="">
                  <div class="card-body">
-                <form id="regForm" method="post" action="/register">
+                    
+                <form id="regForm" method="post" action="/register mt-2">
                 <div class="tab">
                     <h2 class="text-center"><i class="fa-solid fa-file-signature"></i> NAME DETAILS</h2>
                     <div class="mb-3">
@@ -85,7 +86,6 @@
            <input class="form-control" list="College" name="college" id="college">
            <datalist id="College">
            </datalist>
-           
        </div>
     </div>
     <div class="tab">
@@ -99,7 +99,6 @@
             <input type="password" class="form-control"id="cpassword" name="cpassword">
             </div>
         </div>
-    
     <div style="overflow:auto;">
       <div style="float:right;">
         <button type="button" class="btn" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -107,14 +106,13 @@
       </div>
     </div>
     
-    <!-- Circles which indicates the steps of the form: -->
-    <div style="text-align:center;margin-top:40px;">
+    <div style="text-align:center;margin-top:10px;">
       <span class="step"></span>
       <span class="step"></span>
       <span class="step"></span>
       <span class="step"></span>
     </div>
-    <div class="text-center mt-2">
+    <div class="text-center mt-1">
         <a href="/login" class="text-dark old"><i class="fa-solid fa-user"></i> Already a User</a>
     </div>
     </form>
@@ -123,8 +121,6 @@
 </div>
 </div>
 </div>
-
-
 <script>
   let datas= <%- JSON.stringify( data)%>;
 
