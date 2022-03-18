@@ -55,7 +55,8 @@ body{
     <i class="fa fa-plus my-float" ></i>
 </a>
 <script>
-    const disaster= '<%-JSON.stringify(disaster)%>';
+    const disaster= <%-JSON.stringify(disaster)%>;
+    console.log(disaster.length)
     if(disaster.length==0){
         document.body.style.background='white'
     }
