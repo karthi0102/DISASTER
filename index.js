@@ -26,6 +26,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const fast2sms=require('fast-two-sms')
 const ExpressError=require('./utils/ExpressError')
+const mongoSanitize = require('express-mongo-sanitize');
+const MongoStore = require('connect-mongo')
 const Disaster = require("./models/disaster");
 const db=process.env.DB_URL;
 mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true})
@@ -34,15 +36,23 @@ mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true})
 }).catch(err => {
     console.log("OOPS !! ERROR")
 })
-
+const secret=process.env.secret||'secret';
+const store=new  MongoStore({
+    mongoUrl:db,
+    secret,
+    ttl:24*60*60
+})
+store.on('error',(e)=>{
+    console.log("Session store error")
+})
 const sessionConfig = {
-    
+    store,
     name: 'Disaster',
-    secret:"nomoresecret",
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
-        // httpOnly: true,
+        httpOnly: true,
         // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
@@ -51,6 +61,9 @@ const sessionConfig = {
 app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'))
+app.use(mongoSanitize({
+    replaceWith: '_'
+}))
 
 app.use(express.static(path.join(__dirname,'public')) )
 app.set('views', path.join(__dirname, 'views'))
@@ -558,8 +571,8 @@ app.use((err,req,res,next) => {
     if(!err.message) err.message='something went wrong';
     res.status(statusCode).render('error.ejs',{err});
 })
-
-app.listen(8080,()=>{
+const port = process.env.PORT||8080
+app.listen(port,()=>{
     console.log("Server is running on port 8080")
 })
 
