@@ -185,7 +185,7 @@ app.post('/events',async(req,res)=>{
     res.redirect('/events')
 })
 app.get('/events/new',(req,res)=>{
-    res.render('eventnew');
+    res.render('eventNew');
 })
 app.get('/events/:id',async(req,res)=>{
         const {id}=req.params;
