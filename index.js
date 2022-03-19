@@ -234,7 +234,7 @@ app.post('/admin',async(req,res)=>{
             ncc.push(u)
         }
         if(u.nss){
-            nss.push(useUnifiedTopology)
+            nss.push(u)
         }
         arr.push(u.phone)
         arr1.push(u.email)
