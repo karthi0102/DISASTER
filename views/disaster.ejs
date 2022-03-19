@@ -28,6 +28,7 @@ body{
     </div>
     <% } %>  
 <div class="container my-5">
+    <h1 class="text-center display-3">CALAMITIES</h1>
     <div class="row d-flex justify-content-center">
         <% for(let d of disaster){ %>
             <div class="col-sm-12 com-md-6 col-lg-4">
@@ -37,7 +38,7 @@ body{
                                     <hr>
                                     <p>Assemble location : <%= d.assemble%> </p>
                                 <hr>
-                                    <p><%=d.message.substring(0,150)%>.....</p>
+                                    <p><%=d.message.substring(0,70)%>.....</p>
                                    <div class="d-grid gap-2">
                                     <a href="/calamity/<%=d._id%>" class="btn btn-primary">View</a>
                                    </div>

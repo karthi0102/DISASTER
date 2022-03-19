@@ -558,7 +558,7 @@ app.post('/login',passport.authenticate('local',{failureFlash:true,failureRedire
 app.get('/logout',(req,res)=>{
     req.logOut();
     req.flash('success',"GOODBYE ");
-    res.redirect('/');
+    res.redirect('/disaster');
 })
 
 
