@@ -36,9 +36,9 @@
             <% for(let e of events) {%>
                 <div class=" col-sm-12 col-md-6 col-lg-4 item">
                     <div class="box animate__animated animate__zoomIn"><img class="rounded-circle" src="<%=e.image%>" style="height: 140px;">
-                        <h3 class="name"><%=e.title%></h3>
-                        <p class="title"><%=e.location %></p>
-                        <p class="description" style="height: 110px;"><%=e.desc.substring(0,200) %>...</p>
+                        <h3 class="name" style="height: 70px ;"><%=e.title%></h3>
+                        <p class="title" ><%=e.location %></p>
+                        <p class="description" style="height: 110px;"><%=e.desc.substring(0,150) %>...</p>
                         <a href="/events/<%=e._id%>" class="a">VIEW <%=e.title%></a>
             </div>
             </div>
