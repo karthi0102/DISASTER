@@ -2,12 +2,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 <style>
     .side{
-       height: 100vh;
+        height: 100%;
         background-color: darkblue;
         width:30%;
         float: left;
     }
     .main{
+       
         width:70%;
         float: left;
     }
@@ -45,9 +46,9 @@
                
                 <div class="row my-3">
                     <div class="col-lg-6 offset-3">
-                        <form action="/dashboard/state" method="post">
+                        <form action="/dashboard/state"  method="post">
                             <div class="form-group mb-3">
-                                <select class="form-control" id="inputState" name="state">
+                                <select class="form-control"  id="inputState" name="state">
                                     <option value="SelectState">Select State</option>
                                     <option value="Andra Pradesh">Andra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -212,7 +213,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col-12">
                         <button onclick="export_data()" class="btn btn-primary">DOWNLOAD EXCEL</button>
                     </div>
