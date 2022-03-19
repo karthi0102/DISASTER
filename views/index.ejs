@@ -1,36 +1,115 @@
 <% layout('layout/boilerplate')%>
+<head>
 
+          
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@700&display=swap" rel="stylesheet">
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Domine:wght@700&display=swap" rel="stylesheet">
+
+     
 <style>
      .carousel-inner img{
              height:580px;
      } 
+
      body{
-             background-color:#7DB0D0;
+        background: #9CECFB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
      }
+
+     .cardanim{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+ 
+  cursor: pointer;
+}
+
+.cardanim:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
      .p{
-             font-size: 24px;
+             font-size:20px;
+             font-weight:400 !important;
+             font-family: 'Abril Fatface', cursive;
+font-family: 'Acme', sans-serif;
+font-family: 'Domine', serif;
+     }
+     .btn{
+             font-family:Georgia, 'Times New Roman', Times, serif;
+     }
+
+     .btn:hover{
+        transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+     }
+
+     .disaster{
+        text-shadow: 2px 2px gray;
+        font-weight: 300;
+     }
+     .heading{
+
+        font-family: 'Domine', serif;
+            
+         color:dodgerblue;
+             
+     }
+
+     .content{
+
+        font-weight: 355;
+color:mediumblue;
+font-family:'Times New Roman', Times, serif;
      }
      .ab{
-        background: #6441A5;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+border-radius: 25px;
+
+
+background: rgb(174, 240, 236);
+
+
+
 color:white;
+     }
+     .con{
+        border-radius: 25px;
+             background: #b6eeab;
+     }
+     .con p{
+        font-size: 20px;
      }
      .ab p{
              font-size: 20px;
      }
      
+
+  
 </style>
+</head>
 <div class="container my-5">
        
 
 
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8">
-                    <h2 class="text-center text-white display-3"><i class="fa-solid fa-house-crack"></i> Disaster</h2>
+                    <h2 class="disaster  text-center text-white display-3"><i class="  fa-solid fa-house-crack"></i> Disaster</h2>
                     <p class="p text-center lead">A disaster is a serious problem occurring over a short or long period of time that causes widespread human, material, economic or environmental loss which exceeds the ability of the affected community or society to cope using its own resources </p>
             </div>
         </div>
+
+
+      
 <div class="row">
         <div class="col-lg-6 offset-3">
                 <div class="text-center">
@@ -41,14 +120,16 @@ color:white;
                                 
                         <% }else{ %>
                                 <div class="dropdown">
-                                        <button class="btn btn-light dropdown-toggle p-1" data-bs-toggle="dropdown">NCC</button> 
+                                        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">NCC</button> 
                                         <ul class="dropdown-menu">
                                                 <li class="dropdown-menu-item"><a href="/ncc" class="btn">NCC CADET</a></li>
                                                 <li class="dropdown-menu-item"><a href="/ano" class="btn">ANO OFFICER</a></li>
                                                 <li class="dropdown-menu-item"><a href="/officer" class="btn">COMMANDING OFFICER</a></li>
                                         </ul>
-                                        <a href="/nss" class="btn btn-light p-1">NSS CADET</a> 
+                                        <a href="/nss" class="btn btn-light">NSS CADET</a> 
                                 </div>
+                                
+                               
                         <%}%>
 
                         
@@ -58,10 +139,10 @@ color:white;
 <div class="row my-5">
         <div class="col-lg-6">
                 <div class="text-center">
-                        <div class="card ab shadow" style="height: 340px;">
+                        <div class="card cardanim ab shadow" style="height: 340px;">
                                 <div class="card-body">
-                                        <h2 class="display-6">ABOUT US</h2>
-                                        <p class="lead">The National Disaster Response Force (NDRF) is an Indian specialized force constituted "for the purpose of special response to a threatening disaster situation or disaster" under the Disaster Management Act, 2005. The "Apex Body for Disaster Management" in India is the National Disaster Management Authority (NDMA). The Chairman of the NDMA is the Prime Minister.</p>
+                                        <h2 class=" heading display-6">ABOUT US</h2>
+                                        <p class="content lead">The National Disaster Response Force (NDRF) is an Indian specialized force constituted "for the purpose of special response to a threatening disaster situation or disaster" under the Disaster Management Act, 2005. The "Apex Body for Disaster Management" in India is the National Disaster Management Authority (NDMA). The Chairman of the NDMA is the Prime Minister.</p>
                                 </div>
                         </div>
                         
@@ -69,11 +150,11 @@ color:white;
         </div>
         <div class="col-lg-6">
                 <div class="text-center">
-                <div class="card ab shadow" style="height: 340px;">
+                <div class="card con shadow" style="height: 340px;">
                         <div class="card-body">
-                                <h2 class="display-6 text-uppercase">Contact</h2>
-                                <p class="lead">
-                                CONTACT DETAILS OF NDRF HEADQUARTER DIRECTORATE GENERAL ,NATIONAL DISASTER RESPONSE FORCE,
+                                <h2 class=" heading display-6 text-uppercase">Contact</h2>
+                                <p class="content lead">
+                                 DIRECTORATE GENERAL ,NATIONAL DISASTER RESPONSE FORCE,
                                 6th FLOOR, NDCC-II BUILDING, JAI SINGH ROAD, NEW DELHI-110001
                                 CONTROL ROOM DETAILS
                                 TELE/FAX NO. - 011-23438091, 011-23438136
@@ -117,6 +198,10 @@ color:white;
                
         </div>
         </div>
+
+
+        
+
 </div>
 
 </div>
@@ -127,4 +212,3 @@ btn.addEventListener('click',()=>{
 form.style.display='block'
 })
 </script>
-
