@@ -93,11 +93,12 @@
                 <div class="card-body">
                     <% if(users.length){ %> 
                     <div id="piechart_3d" ></div>
-                    <% } %> 
+                    <% }else{ %> 
                     <div class="text-center">
                         <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
                            <br> NO USERS FOUND.....</p>
                     </div>
+                    <% } %> 
                 </div>
             </div>
             
@@ -109,11 +110,12 @@
                 <div class="card-body">
                     <% if(ncc.length){ %> 
                     <div id="ncc_gender"></div>
-                        <% } %> 
+                        <% }else{ %> 
                         <div class="text-center">
                             <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
                                <br> NO NCC USERSFOUND.....</p>
                         </div>
+                        <% } %> 
                 </div>  
             </div>
         </div>
@@ -123,11 +125,12 @@
             <div class="card-body">
                 <% if(ncc.length){ %> 
                 <div id="ncc_div"></div>
-                <% } %>
+                <% }else{ %>
                 <div class="text-center">
                     <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
                        <br> NO NCC USERSFOUND.....</p>
                 </div>
+                <% } %> 
             </div>  
         </div>
     </div>
@@ -140,11 +143,12 @@
             <div class="card-body">
                 <% if(nss.length){ %> 
                 <div id="nss_gender"></div>
-                <% } %>
+                <% }else{ %>
                 <div class="text-center">
                     <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
                        <br> NO NSS USERSFOUND.....</p>
                 </div> 
+                <% } %> 
             </div>
         </div>
     </div>
