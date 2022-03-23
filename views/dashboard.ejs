@@ -1,180 +1,162 @@
 <% layout('layout/boilerplate')%>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 <style>
     .side{
-        height: 100%;
         background-color: darkblue;
-        width:30%;
-        float: left;
+        color:white;
     }
-    .main{
-       
-        width:70%;
-        float: left;
-    }
-    table td,table th{
-        border: 2px solid black ;
-        border-left: 2px solid black;
-    }
-    table th{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    
-    .len{
-        font-size: 50px;
-        color:darkblue;
-    }
-    .ncc{
-        text-decoration: none;
-        font-size: medium;
-        color: black;
-    }
-    #chart_div{
-        height: 300px;
-        width:300px;
-    }
-    
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
 
-        <div class="container side">
-            <div class="row">
-                <div class="col-6 offset-4 my-3">
-                        <a href="/map" class="btn btn-light btn-lg"><i class="fa-solid fa-map"></i> Map  View</a>
-                </div>
-            </div>
-                <div class="row my-3">
-                    <div class="col-lg-8 offset-2 ">
-                        <form action="/dashboard/state"  method="post">
-                            <div class="form-group mb-3">
-                                <select class="form-control"  id="inputState" name="state">
-                                    <option value="SelectState">Select State</option>
-                                    <option value="Andra Pradesh">Andra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chhattisgarh">Chhattisgarh</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madya Pradesh">Madya Pradesh</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Orissa">Orissa</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                    <option value="Telangana">Telangana</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="Uttaranchal">Uttaranchal</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="West Bengal">West Bengal</option>
-                                    <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
-                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                                    <option value="Chandigarh">Chandigarh</option>
-                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                                    <option value="Daman and Diu">Daman and Diu</option>
-                                    <option value="Delhi">Delhi</option>
-                                    <option value="Lakshadeep">Lakshadeep</option>
-                                    <option value="Pondicherry">Pondicherry</option>
-                                </select>
-                            </div>
-                            <div class="d-grid gap-2 mb-3">
-                                <button class="btn btn-light">Search</button>
-                            </div>
-                        </form>
-                        <form action="/dashboard/district" method="post">
-                            <div class="form-group mb-3">
-                                <select class="form-control" id="inputDistrict" name="district">
-                                    <option value="">SELECT DISTRICT</option>
-                                </select>
-                            </div>
-                    <div class="d-grid gap-2">
-                            <button class="btn btn-light">Search</button>
-                    </div> 
-                       </form>
-                </div>
-            </div>
+<div class="container">
 
-
-            <div class="row text-center mt-5">
-                <h2 class="text-white text-center">Total</h2>
-                <div class="col-md-4">
-                    <p class="len text-white"><%= users.length %> </p>
-                    <p class="text-white len">Users</p>
-                </div>
-                
-                <div class="col-md-4">
-                    <p class="len text-white"><%= ncc.length + ano.length + officer.length %> </p>
-                    <p class="len text-white"> Ncc</p> 
-                </div>
-                <div class="col-md-4">
-                    <p class="len text-white"><%= nss.length  %> </p>
-                    <p class="text-white len">Nss</p>
-                </div>
-            </div>
+        <h1 class="text-center display-2">DASHBOARD</h1>
         
+           <div class="container">
+               <div class="row d-flex justify-content-center">
+                   <div class="col-lg-10">
+                        <div class="card side">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <form action="/dashboard/state" method="post">
+                                            <select name="state" id="inputState"  class="form-select">
+                                            <option value="SelectState">Select State</option>
+                                            <option value="Andra Pradesh">Andra Pradesh</option>
+                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                            <option value="Assam">Assam</option>
+                                            <option value="Bihar">Bihar</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                            <option value="Goa">Goa</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                            <option value="Jharkhand">Jharkhand</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Kerala">Kerala</option>
+                                            <option value="Madya Pradesh">Madya Pradesh</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Manipur">Manipur</option>
+                                            <option value="Meghalaya">Meghalaya</option>
+                                            <option value="Mizoram">Mizoram</option>
+                                            <option value="Nagaland">Nagaland</option>
+                                            <option value="Orissa">Orissa</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Sikkim">Sikkim</option>
+                                            <option value="Tamil Nadu">Tamil Nadu</option>
+                                            <option value="Telangana">Telangana</option>
+                                            <option value="Tripura">Tripura</option>
+                                            <option value="Uttaranchal">Uttaranchal</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="West Bengal">West Bengal</option>
+                                            <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
+                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                            <option value="Chandigarh">Chandigarh</option>
+                                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                            <option value="Daman and Diu">Daman and Diu</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Lakshadeep">Lakshadeep</option>
+                                            <option value="Pondicherry">Pondicherry</option>
+                                          </select>
+                                          <div class="d-grid gap-2 mt-2">
+                                                <button class="btn btn-light">SEARCH</button>
+                                          </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-6">
+                                        <form action="/dashboard/district" method="post">
+                                        <select class="form-control" id="inputDistrict" name="district">
+                                            <option value="">SELECT DISTRICT</option>
+                                        </select>
+                                        <div class="d-grid gap-2 mt-2">
+                                                <button class="btn btn-light">SEARCH</button>
+                                        </div>
+                                    </form>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12 text-center">
+                                        <button onclick="export_data()" class="btn btn-light">DOWNLOAD REPORT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+           </div>
+<div class="container">
+    <div class="row d-flex justify-content-center my-3">
+        <div class="col-lg-10">
+            <div class="card shadow">
+                <div class="card-body">
+                    <% if(users.length){ %> 
+                    <div id="piechart_3d" ></div>
+                    <% } %> 
+                    <div class="text-center">
+                        <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
+                           <br> NO USERS FOUND.....</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
+    <div class="row">
+        <div class="col-lg-6 my-3">
+            <div class="card shadow">
+                <div class="card-body">
+                    <% if(ncc.length){ %> 
+                    <div id="ncc_gender"></div>
+                        <% } %> 
+                        <div class="text-center">
+                            <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
+                               <br> NO NCC USERSFOUND.....</p>
+                        </div>
+                </div>  
+            </div>
+        </div>
+    
+    <div class="col-lg-6 my-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <% if(ncc.length){ %> 
+                <div id="ncc_div"></div>
+                <% } %>
+                <div class="text-center">
+                    <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
+                       <br> NO NCC USERSFOUND.....</p>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
+</div>
 
-
-
-
-        <div class="main text-center mb-3">
-            <div class="container">
+<div class="row d-flex justify-content-center my-3">
+    <div class="col-lg-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <% if(nss.length){ %> 
+                <div id="nss_gender"></div>
+                <% } %>
+                <div class="text-center">
+                    <p class="font-monospace"><i class="fa-solid fa-face-dizzy"></i>
+                       <br> NO NSS USERSFOUND.....</p>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+                           
+                      
+    
+          
 
           
-                <div class="row">
-                    <div class="col-lg-6 offset-3">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div id="piechart_3d" ></div>
-                            </div>
-                    </div>
-                </div>
-                    
-            <div class="row my-3">
-                <div class="col-lg-6">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <div id="ncc_gender"></div>
-                        </div>  
-                    </div>
-                    
-                </div>
-                <div class="col-lg-6">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            
-                            <div id="ncc_div"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
                 
-                <div class="row">
-                    <div class="col-lg-6 offset-3">
-                        <% if(nss.length!=0) {%> 
-                        <div class="card shadow">
-                            <div class="card-body">
-                               
-                                <div id="nss_gender"></div>
-                               
-                            </div>
-                            <% } %> 
-                        </div>
-                    </div>
-                </div>
-            </div>
                 
                 <div class="container">
                     <table style="display: none;"  id="register_table">
@@ -212,11 +194,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <button onclick="export_data()" class="btn btn-primary">DOWNLOAD REPORT</button>
-                    </div>
-                </div>
+                
                <script>
                         const ncc  = <%-JSON.stringify(ncc)%>;
                const nss= <%- JSON.stringify(nss) %>;
