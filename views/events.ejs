@@ -1,9 +1,10 @@
 <% layout('layout/boilerplate')%>
 <link rel="stylesheet" href="/stylesheets/card.css">
 <style>
-   main{
-       height: 100vh;
-   }
+  body{
+      height: 100vh;
+      background-color: #7DB0D0;
+  }
     .a{
         color:darkblue !important;
     }
@@ -32,7 +33,7 @@
 <% } %>
 
 <link rel="stylesheet" href="/stylesheets/fbutton.css">
-<div class="container mt-2">
+<div class="container mt-4">
     <div class="team-boxed ">
         <div class="row people d-flex justify-content-center ">
             <% for(let e of events) {%>
@@ -51,19 +52,3 @@
 <a href="/events/new" class="float">
     <i class="fa fa-plus my-float" ></i>
 </a>
-<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.fog.min.js"></script>
-<script src="three.r119.min.js"></script>
-<script src="vanta.fog.min.js"></script>
-<script>
-VANTA.FOG({
-  el: "main",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-
-  highlightColor: 0xffe1,
-  midtoneColor: 0xc2ff,
-  speed: 3.90
-})
-</script>

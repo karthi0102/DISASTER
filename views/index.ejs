@@ -37,11 +37,12 @@ font-family: 'Domine', serif;
     
        
      }
-     .about .card{
+     .about .card,.contact{
           background-color: rgba(255,20,147,0.5);
        
           color:white;   
      }
+     
      
      /* cardanim{
     border-radius: 4px;
@@ -172,71 +173,57 @@ color:white;
                                  NO. - 011-23438017,  011-23438019 
                                        
                         </p>
-                                 <div class="d-grid gap-2 mt-2">
-                                 <div class="modal fade text-dark" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalToggleLabel">Contact US</h5>
-                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="/mail" method="post">
-                                                        <fieldset>
-                                                                <legend> <i class="fa-solid fa-envelope fa-bounce" style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0;" ></i> CONTACT WITH US</legend>                                      
-                                                                  <div class="mb-3 text-left">
-                                                                <label for="email" class="form-label">Email</label>
-                                                                <input type="email" name="email" id="email" class="form-control">
-                                                        </div>
-                                                        <div class="mb-3 text-left">
-                                                        <label for="feed" class="form-label">MESSAGE</label>
-                                                        <textarea class="form-control" name="feedback" id="feed" cols="5" rows="5"></textarea>
-                                                </div>
-                                                <div class="d-grid gap-2">
-                                                        <button class="btn btn-secondary">CONTACT</button>
-                                                </div>
-                                        </fieldset>
-                                                </form>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <a class="btn btn-light" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Contact Us</a>
-
-                                </div>
+                        
                         </div>
                 </div>
                
         </div>
         </div>
-
-
-        
-
 </div>
 
 </div>
-<script>
-let btn = document.querySelector('.c')
-const form =document.querySelector('.contact')
-btn.addEventListener('click',()=>{
-form.style.display='block'
-})
-</script>
 
+<div class="container my-3">
+        <div class="row ">
+                <div class="col-sm-12 col-lg-6 offset-lg-3 contact my-2">
+                        <form action="/mail" method="post">
+                                <fieldset>
+                                        <legend> <i class="fa-solid fa-envelope fa-bounce" style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y:1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0;" ></i> CONTACT WITH US</legend>                                      
+                                          <div class="mb-3 text-left">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" name="email" id="email" class="form-control">
+                                </div>
+                                <div class="mb-3 text-left">
+                                <label for="feed" class="form-label">MESSAGE</label>
+                                <textarea class="form-control" name="feedback" id="feed" cols="5" rows="5"></textarea>
+                        </div>
+                        <div class="d-grid gap-2 my-2">
+                                <button class="btn btn-light">CONTACT</button>
+                        </div>
+                </fieldset>
+                        </form>
+                </div>
+        </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.globe.min.js"></script>
 <script src="three.r119.min.js"></script>
 <script src="vanta.globe.min.js"></script>
 <script>
+       
 VANTA.GLOBE({
   el: "main",
   mouseControls: true,
   touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
+  gyroControls: true,
+ 
   scale: 1.00,
   scaleMobile: 1.00
+})
+
+let btn = document.querySelector('.c')
+const form =document.querySelector('.contact')
+btn.addEventListener('click',()=>{
+form.style.display='block'
 })
 </script>
