@@ -40,10 +40,20 @@
                             <p class="lead"><%= event.desc %></p>
                             <p class="span"> Days: <%=event.start%> to <%=event.end%></p>
                             <p class="span">  Contact: <%=event.phone%></p>
-                            <a href="/events/<%=event._id%>/edit" class="btn btn-info">Edit</a>
-                            <form class="d-inline" action="/events/<%=event._id%>?_method=DELETE" method="POST">
-                                <button class="btn btn-danger p-1">Delete</button>
-                            </form>
+                            <div class="row">
+                                <div class="col-6 d-grid gap-2">
+                                    <a href="/events/<%=event._id%>/edit" class="btn btn-info p-2">Edit</a>.
+                                </div>
+                                <div class="col-6">
+                                    <form class="d-inline" action="/events/<%=event._id%>?_method=DELETE" method="POST">
+                                        <div class="d-grid gap-2">
+                                        <button class="btn btn-danger p-2">Delete</button>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                            
                     </div>
                 </div>
         </div>

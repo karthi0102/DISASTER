@@ -88,7 +88,9 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/disaster',async(req,res)=>{  
-    
+    if(!req.isAuthenticated()){
+        res.redirect('/login')
+    }
         const id = req.user._id;
         const user = await User.findById(id).populate('ncc').populate('nss').populate('officer').populate('ano');
         

@@ -1,6 +1,5 @@
 <% layout('layout/boilerplate')%>
-<head>
-
+b
           
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,18 +16,39 @@
      } 
 
      body{
-        background: #9CECFB;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        height: 100vh;
 
      }
-
-     .cardanim{
+     .about card{
+             background-color: deeppink;
+             color:white;
+     }
+     
+     .p{
+             font-size:20px;
+             font-weight:400 !important;
+             font-family: 'Abril Fatface', cursive;
+font-family: 'Acme', sans-serif;
+font-family: 'Domine', serif;
+     }
+     .disaster-text{
+       color: rgb(247, 218, 223) !important;
+       font-size: 25px;
+    
+       
+     }
+     .about .card{
+          background-color: rgba(255,20,147,0.5);
+       
+          color:white;   
+     }
+     
+     /* cardanim{
     border-radius: 4px;
-    background: #fff;
+  color:white;
+  background-color: deeppink;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
- 
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12); 
   cursor: pointer;
 }
 
@@ -37,13 +57,6 @@ background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB); /* W3C, IE 10+
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
-     .p{
-             font-size:20px;
-             font-weight:400 !important;
-             font-family: 'Abril Fatface', cursive;
-font-family: 'Acme', sans-serif;
-font-family: 'Domine', serif;
-     }
      .btn{
              font-family:Georgia, 'Times New Roman', Times, serif;
      }
@@ -57,6 +70,9 @@ font-family: 'Domine', serif;
         text-shadow: 2px 2px gray;
         font-weight: 300;
      }
+
+    
+
      .heading{
 
         font-family: 'Domine', serif;
@@ -65,12 +81,7 @@ font-family: 'Domine', serif;
              
      }
 
-     .content{
-
-        font-weight: 355;
-color:mediumblue;
-font-family:'Times New Roman', Times, serif;
-     }
+     
      .ab{
 
 border-radius: 25px;
@@ -84,27 +95,27 @@ color:white;
      }
      .con{
         border-radius: 25px;
-             background: #b6eeab;
+             background: #e41ec383;
+             color: antiquewhite !important;
      }
      .con p{
         font-size: 20px;
      }
      .ab p{
              font-size: 20px;
-     }
+     }  */
 </style>
-</head>
-<div class="container my-5">
+<div class="container my-5" id="body">
        
 
-
-        <div class="row d-flex justify-content-center">
+<div class="text-left">
+        <div class="row d-flex">
             <div class="col-lg-8">
                     <h2 class="disaster  text-center text-white display-3"><i class="  fa-solid fa-house-crack"></i> Disaster</h2>
-                    <p class="p text-center lead">A disaster is a serious problem occurring over a short or long period of time that causes widespread human, material, economic or environmental loss which exceeds the ability of the affected community or society to cope using its own resources </p>
+                    <p class="p  text-center lead disaster-text">A disaster is a serious problem occurring over a short or long period of time that causes widespread human, material, economic or environmental loss which exceeds the ability of the affected community or society to cope using its own resources </p>
             </div>
         </div>
-
+</div>
 
       
 <div class="row">
@@ -134,9 +145,9 @@ color:white;
         </div>
 </div>
 <div class="row my-5">
-        <div class="col-lg-6">
+        <div class="col-lg-6 about">
                 <div class="text-center">
-                        <div class="card cardanim ab shadow mt-3">
+                        <div class="card shadow mt-3 ">
                                 <div class="card-body">
                                         <h2 class=" heading display-6">ABOUT US</h2>
                                         <p class="content lead">The National Disaster Response Force (NDRF) is an Indian specialized force constituted "for the purpose of special response to a threatening disaster situation or disaster" under the Disaster Management Act, 2005. The "Apex Body for Disaster Management" in India is the National Disaster Management Authority (NDMA). The Chairman of the NDMA is the Prime Minister.</p>
@@ -145,19 +156,22 @@ color:white;
                         
                 </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 about">
                 <div class="text-center">
                 <div class="card con shadow mt-3" >
                         <div class="card-body">
                                 <h2 class=" heading display-6 text-uppercase">Contact</h2>
                                 <p class="content lead">
+                                      
                                  DIRECTORATE GENERAL ,NATIONAL DISASTER RESPONSE FORCE,
                                 6th FLOOR, NDCC-II BUILDING, JAI SINGH ROAD, NEW DELHI-110001
                                 CONTROL ROOM DETAILS
                                 TELE/FAX NO. - 011-23438091, 011-23438136
                                 EMAIL ID - hq.ndrf@nic.in
                                 EXCHANGE / RECEPTION DETAILS
-                                 NO. - 011-23438017,  011-23438019 </p>
+                                 NO. - 011-23438017,  011-23438019 
+                                       
+                        </p>
                                  <div class="d-grid gap-2 mt-2">
                                  <div class="modal fade text-dark" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                                         <div class="modal-dialog modal-dialog-centered">
@@ -207,5 +221,22 @@ let btn = document.querySelector('.c')
 const form =document.querySelector('.contact')
 btn.addEventListener('click',()=>{
 form.style.display='block'
+})
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.globe.min.js"></script>
+<script src="three.r119.min.js"></script>
+<script src="vanta.globe.min.js"></script>
+<script>
+VANTA.GLOBE({
+  el: "main",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00
 })
 </script>
