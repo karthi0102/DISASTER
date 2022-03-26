@@ -89,11 +89,10 @@ app.get('/',(req,res)=>{
 
 app.get('/disaster',async(req,res)=>{  
     if(!req.isAuthenticated()){
-        res.redirect('/login')
+       return  res.redirect('/login')
     }
         const id = req.user._id;
-        const user = await User.findById(id).populate('ncc').populate('nss').populate('officer').populate('ano');
-        
+        const user = await User.findById(id).populate('ncc').populate('nss').populate('officer').populate('ano')
         res.render("index.ejs",{user})
     
 })
@@ -239,9 +238,8 @@ app.post('/admin',async(req,res)=>{
         arr.push(u.phone)
         arr1.push(u.email)
         }
-        
-        let phone = [...new Set(arr)]
-        let email =[...new Set(arr1)]
+        let phone = [...new Set(arr)];
+        let email =[...new Set(arr1)];
         res.render('message',{phone,email,user,district,nss,ncc})
 })
 app.get('/dashboard',async(req,res)=>{
@@ -495,7 +493,6 @@ app.post('/message/:phone',async (req,res)=>{
     catch(e){
         console.log(e);
     }
-   
     res.redirect('/admin')
 })
 app.get('/map',async(req,res)=>{
@@ -557,8 +554,7 @@ app.post('/login',passport.authenticate('local',{failureFlash:true,failureRedire
 
 app.get('/logout',(req,res)=>{
     req.logOut();
-    req.flash('success',"GOODBYE ");
-    res.redirect('/disaster');
+    res.redirect('/');
 })
 
 
